@@ -11,7 +11,7 @@ class MinuteRotation
       hours_diff = diff_hour time1, time2 # in hours
       minutes_diff = diff_minute time1, time2 # in minutes
 
-      degrees(hours_diff, minutes_diff)
+      degrees hours_diff, minutes_diff
     end
 
     private
