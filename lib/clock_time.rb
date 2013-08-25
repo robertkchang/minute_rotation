@@ -53,4 +53,8 @@ class ClockTime
       1
     end
   end
+
+  def to_s
+    "#{hours}:#{minutes}"
+  end
 end
