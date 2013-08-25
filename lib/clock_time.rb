@@ -13,6 +13,10 @@ class ClockTime
     convert_to_military
   end
 
+  def to_s
+    "#{hours}:#{minutes}"
+  end
+
   private
 
   def validate_clock clock_arr
@@ -39,22 +43,8 @@ class ClockTime
   end
 
   def <=>(another)
-    if self.hours < another.hours
-      -1
-    elsif self.hours == another.hours
-      if self.minutes < another.minutes
-        -1
-      elsif self.minutes > another.minutes
-        1
-      else
-        0
-      end
-    else
-      1
-    end
-  end
-
-  def to_s
-    "#{hours}:#{minutes}"
+    return -1 if self.hours < another.hours || (self.hours == another.hours && self.minutes < another.minutes)
+    return 1 if self.hours > another.hours || (self.hours == another.hours && self.minutes > another.minutes)
+    0
   end
 end
